@@ -7,55 +7,54 @@ import {
   Users,
   Trophy,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Programas = () => {
+  const navigate = useNavigate();
+
   const programas = [
-    {
-      title: "Salud",
-      description: "Servicios de enfermería, salud mental, control de vectores y programas de salud territorial.",
-      icon: <HeartPulse size={40} />,
-    },
-    {
-      title: "Educación",
-      description: "Capacitaciones, dotaciones escolares, campañas educativas y apoyo a instituciones.",
-      icon: <BookOpen size={40} />,
-    },
-    {
-      title: "Agropecuario",
-      description: "Asistencia técnica rural, proyectos productivos sostenibles y desarrollo agrícola.",
-      icon: <Leaf size={40} />,
-    },
-    {
-      title: "Civil",
-      description: "Construcción, mantenimiento de infraestructura y proyectos comunitarios.",
-      icon: <Building2 size={40} />,
-    },
-    {
-      title: "Bienestar",
-      description: "Programas para infancia, adultos mayores y atención social integral.",
-      icon: <Users size={40} />,
-    },
-    {
-      title: "Recreación y Deporte",
-      description: "Actividades deportivas, recreativas y desarrollo comunitario.",
-      icon: <Trophy size={40} />,
-    },
+    { title: "Salud", description: "Servicios de salud comunitaria", icon: <HeartPulse size={32} />, value: "salud" },
+    { title: "Educación", description: "Capacitación y apoyo educativo", icon: <BookOpen size={32} />, value: "educacion" },
+    { title: "Agropecuario", description: "Proyectos productivos rurales", icon: <Leaf size={32} />, value: "agropecuario" },
+    { title: "Civil", description: "Infraestructura comunitaria", icon: <Building2 size={32} />, value: "civil" },
+    { title: "Bienestar", description: "Atención social integral", icon: <Users size={32} />, value: "bienestar" },
+    { title: "Deporte", description: "Recreación y desarrollo social", icon: <Trophy size={32} />, value: "deporte" },
   ];
 
-  return (
-    <div className="p-8 text-center">
-      <h1 className="text-3xl font-bold mb-8">Nuestros Programas</h1>
+  const handleClick = (categoria) => {
+    navigate(`/videos?categoria=${categoria}`);
+  };
 
-      <div className="grid md:grid-cols-3 gap-6 mt-8">
+  return (
+    <div className="h-full flex flex-col justify-center px-6 bg-gray-50 overflow-hidden">
+
+      {/* TÍTULO */}
+      <div className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-green-700">
+          Nuestros Programas
+        </h1>
+        <p className="text-gray-600 text-sm mt-2">
+          Áreas donde generamos impacto social
+        </p>
+      </div>
+
+      {/* GRID */}
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto w-full">
         {programas.map((prog, index) => (
-          <Card
+          <div
             key={index}
-            title={prog.title}
-            description={prog.description}
-            icon={prog.icon}
-          />
+            onClick={() => handleClick(prog.value)}
+            className="cursor-pointer transform hover:scale-105 transition duration-300"
+          >
+            <Card
+              title={prog.title}
+              description={prog.description}
+              icon={prog.icon}
+            />
+          </div>
         ))}
       </div>
+
     </div>
   );
 };

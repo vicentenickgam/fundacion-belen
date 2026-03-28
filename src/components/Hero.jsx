@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className="bg-gradient-to-r from-green-800 to-green-600 text-white min-h-screen flex flex-col justify-center items-center text-center px-6">
@@ -7,18 +9,25 @@ const Hero = () => {
       </h1>
 
       <p className="max-w-xl text-lg md:text-xl mb-6">
-        Trabajamos por el bienestar social, la educación, la salud y el desarrollo de comunidades vulnerables en Colombia.
+        Transformando vidas a través de la educación, la salud y el desarrollo social
       </p>
 
-      <div className="flex gap-4">
-        <button className="bg-white text-green-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
+      <div className="flex gap-4 flex-wrap justify-center">
+        <Link
+          to="/nosotros"
+          className="bg-white text-green-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
+        >
           Conócenos
-        </button>
+        </Link>
 
-        <button className="border border-white px-6 py-2 rounded-lg hover:bg-white hover:text-green-700 transition">
+        <Link
+          to="/programas"
+          className="border border-white px-6 py-2 rounded-lg hover:bg-white hover:text-green-700 transition"
+        >
           Nuestros Programas
-        </button>
+        </Link>
       </div>
+
     </section>
   );
 };
