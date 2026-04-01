@@ -12,14 +12,14 @@ import { useNavigate } from "react-router-dom";
 const Programas = () => {
   const navigate = useNavigate();
 
-  const programas = [
-    { title: "Salud", description: "Servicios de salud comunitaria", icon: <HeartPulse size={32} />, value: "salud" },
-    { title: "Educación", description: "Capacitación y apoyo educativo", icon: <BookOpen size={32} />, value: "educacion" },
-    { title: "Agropecuario", description: "Proyectos productivos rurales", icon: <Leaf size={32} />, value: "agropecuario" },
-    { title: "Civil", description: "Infraestructura comunitaria", icon: <Building2 size={32} />, value: "civil" },
-    { title: "Bienestar", description: "Atención social integral", icon: <Users size={32} />, value: "bienestar" },
-    { title: "Deporte", description: "Recreación y desarrollo social", icon: <Trophy size={32} />, value: "deporte" },
-  ];
+const programas = [
+  { title: "Salud", description: "Atención integral en salud comunitaria", icon: <HeartPulse size={32} />, value: "salud" },
+  { title: "Educación", description: "Formación y fortalecimiento educativo", icon: <BookOpen size={32} />, value: "educacion" },
+  { title: "Agropecuario", description: "Desarrollo de proyectos productivos rurales", icon: <Leaf size={32} />, value: "agropecuario" },
+  { title: "Civil", description: "Desarrollo de infraestructura comunitaria", icon: <Building2 size={32} />, value: "civil" },
+  { title: "Bienestar", description: "Atención social y fortalecimiento comunitario", icon: <Users size={32} />, value: "bienestar" },
+  { title: "Deporte", description: "Promoción del deporte y la integración social", icon: <Trophy size={32} />, value: "deporte" },
+];
 
   const handleClick = (categoria) => {
     navigate(`/videos?categoria=${categoria}`);
