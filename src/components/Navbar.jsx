@@ -53,6 +53,7 @@ const Navbar = () => {
           <NavLink to="/nosotros" className={linkClass} onClick={() => setOpen(false)}>Nosotros</NavLink>
           <NavLink to="/programas" className={linkClass} onClick={() => setOpen(false)}>Programas</NavLink>
           <NavLink to="/videos" className={linkClass} onClick={() => setOpen(false)}>Videos</NavLink>
+          <NavLink to="/donaciones" className={linkClass} onClick={() => setOpen(false)}>Donar</NavLink>
         </div>
       )}
 
