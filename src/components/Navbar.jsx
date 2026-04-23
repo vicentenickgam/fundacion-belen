@@ -34,6 +34,7 @@ const Navbar = () => {
           <NavLink to="/nosotros" className={linkClass}>Nosotros</NavLink>
           <NavLink to="/programas" className={linkClass}>Programas</NavLink>
           <NavLink to="/videos" className={linkClass}>Videos</NavLink>
+          <NavLink to="/donaciones" className={linkClass}>Donar</NavLink>
         </div>
 
         {/* BOTÓN HAMBURGUESA */}

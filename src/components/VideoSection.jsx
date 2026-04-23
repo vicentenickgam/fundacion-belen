@@ -10,6 +10,17 @@ const VideoSection = ({ folder }) => {
   const [loading, setLoading] = useState(true);
   const [videoActivo, setVideoActivo] = useState(null);
 
+  const descripciones = {
+  salud: [
+    "Jornada médica en comunidad rural",
+    "Atención en salud preventiva",
+  ],
+  educacion: [
+    "Entrega de kits escolares",
+    "Capacitación educativa",
+  ],
+};
+
   useEffect(() => {
     setVideosValidos([]);
     setLoading(true);
@@ -30,6 +41,7 @@ const VideoSection = ({ folder }) => {
     });
   }, [folder]);
 
+
   return (
     <div className="max-w-6xl mx-auto">
 
@@ -42,21 +54,27 @@ const VideoSection = ({ folder }) => {
 
       {/* GRID */}
       <div className="grid md:grid-cols-3 gap-6">
-        {videosValidos.map((video, index) => (
-          <div
-            key={index}
-            onClick={() => setVideoActivo(video)}
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden cursor-pointer"
-          >
-            <div className="bg-black flex items-center justify-center h-64">
-              <video
-                src={video}
-                className="max-h-full max-w-full object-contain"
-                muted
-              />
+          {videosValidos.map((video, index) => (
+            <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden">
+
+              <div
+                onClick={() => setVideoActivo(video)}
+                className="cursor-pointer bg-black flex items-center justify-center h-64"
+              >
+                <video
+                  src={video}
+                  className="max-h-full max-w-full object-contain"
+                  muted
+                />
+              </div>
+
+              {/* DESCRIPCIÓN */}
+              <div className="p-3 text-sm text-gray-600 text-center">
+                {descripciones[folder]?.[index] || "Video institucional"}
+              </div>
+
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       {/* SIN VIDEOS */}
